@@ -1,0 +1,52 @@
+SELECT * FROM student;
+
+SELECT *
+FROM student
+WHERE name='David';
+
+SELECT course_name, name FROM student;
+
+SELECT *
+FROM student
+WHERE name LIKE 'А%';
+
+Enter password: ********************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| myfirstdb          |
+| mysql              |
+| performance_schema |
+| sakila             |
+| seminar1           |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use seminar1;
+Database changed
+mysql> select * from students;
+ERROR 1146 (42S02): Table 'seminar1.students' doesn't exist
+mysql> select * from student;
++-----------+-------+-----------------+-----------------+---------------+-------------+
+| idStudent | name  | email           | phone_number    | date_of_birth | course_name |
++-----------+-------+-----------------+-----------------+---------------+-------------+
+|         1 | David | david@email.com | +7985464565555  | 2012-02-07    | English     |
+|         2 | Антон | toha@mail.com   | +77456987233215 | 2009-07-12    | SQL         |
++-----------+-------+-----------------+-----------------+---------------+-------------+
+2 rows in set (0.00 sec)
