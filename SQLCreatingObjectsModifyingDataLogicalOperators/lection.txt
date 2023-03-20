@@ -1,0 +1,2 @@
+CREATE DATABASE MySampleDB;
+show databases;
