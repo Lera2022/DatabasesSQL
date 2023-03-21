@@ -146,7 +146,7 @@ DELETE FROM имя_таблицы
 DELETE FROM Products
 WHERE Manufacturer='Huawei';
 
-WHERE выражение [NOT] IN (выражение)
+WHERE выражение [NOT] IN (выражение);
 
 SELECT * FROM Products
 WHERE Manufacturer IN ('Apple', 'Samsung');
