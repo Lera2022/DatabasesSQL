@@ -1,0 +1,13 @@
+DROP TABLE cinema;
+
+ALTER TABLE cinema
+ADD FOREIGN KEY(producer_id) REFERENCES producer(Id);
+
+TRUNCATE TABLE cinema;
+
+ALTER TABLE `Movie` CHANGE `id` `id` INT NOT NULL auto_increment FIRST, CHANGE `title` `title` VARCHAR(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL AFTER `id`
+
+В зависимости от общего количество баллов, укажите статус ученик в табеле успеваемости: если суммарное количество баллов больше 450, то студент закончил на “Отлично”; иначе - “Хорошо”
+SELECT total_marks, grade, stud_id,
+IF(total_marks > 400, "Great", "Good") AS 'Report card'
+FROM studentMarks;
