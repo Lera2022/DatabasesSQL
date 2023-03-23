@@ -4,7 +4,7 @@ CREATE TABLE Products
     ProductName VARCHAR(30) NOT NULL,
     Manufacturer VARCHAR(20) NOT NULL,
     ProductCount INT DEFAULT 0,
-    Price DECIMAL
+    Price DECIMAL NOT NULL
  );
  INSERT INTO Products (ProductName, Manufacturer, ProductCount, Price)
   VALUES

@@ -1,0 +1,50 @@
+SELECT expressions
+FROM tables
+[WHERE conditions]
+ORDER BY expression [ ASC | DESC ];
+
+SELECT ProductName, Price, ProductCount
+FROM Products
+ORDER BY ProductCount * Price;
+
+SELECT поля_выборки
+FROM список_таблиц
+LIMIT [количество_пропущенных_записей,] количество_записей_для_вывода;
+
+LIMIT [offset,] rowcount
+
+SELECT * FROM Products
+LIMIT 3;
+
+SELECT * FROM Products
+LIMIT 2, 3
+
+SELECT TOP 2 *    # MS
+FROM Object
+
+SELECT ColumnNames FROM TableName ORDER BY ColumnName OFFSET
+rows_to_be_skipped FETCH NEXT n ROWS ONLY;
+
+SELECT ColumnNames FROM TableName ORDER BY ColumnNames OFFSET m ROWS
+FETCH NEXT p ROWS ONLY;
+
+SELECT столбцы
+FROM таблица
+[WHERE условие_фильтрации_строк]
+[GROUP BY столбцы_для_группировки]
+[HAVING условие_фильтрации_групп]
+[ORDER BY столбцы_для_сортировки]
+
+SELECT expression1, expression2, ... expression_n,
+        aggregate_function (expression)
+FROM tables
+[WHERE conditions]
+GROUP BY expression1, expression2, ... expression_n
+
+SELECT Manufacturer, COUNT(*) AS ModelCount
+FROM Products
+WHERE Price * ProductCount > 80000
+GROUP BY Manufacturer
+HAVING COUNT(*) > 1;
+
+18:27
