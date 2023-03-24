@@ -15,6 +15,7 @@ values
 ('Galaxy S8', 'Samsung', 1, 46000),
 ('Honor 10', 'Huawei', 5, 28000),
 ('Nokia 8', 'HMD Global', 6, 38000);
+
 select avg(price) as average_price from products;
 select avg(price) from products
 where manufacturer='apple';
@@ -38,3 +39,8 @@ order by price asc;
 -- COUNT
 SELECT COUNT(*)
 FROM products;
+
+SELECT Manufacturer, COUNT(*) AS Models, Price, ProductCount
+FROM Products
+WHERE Price > 40000
+GROUP BY Manufacturer;

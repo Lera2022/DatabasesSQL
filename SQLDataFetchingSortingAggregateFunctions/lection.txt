@@ -46,5 +46,3 @@ FROM Products
 WHERE Price * ProductCount > 80000
 GROUP BY Manufacturer
 HAVING COUNT(*) > 1;
-
-18:27
