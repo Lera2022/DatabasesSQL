@@ -1,0 +1,72 @@
+SELECT ...
+UNION [ALL | DISTINCT] SELECT ...
+[UNION [ALL | DISTINCT] SELECT ... ]
+
+SELECT FirstName, LastName
+FROM Customers
+UNION SELECT FirstName, LastName
+FROM Employees
+ORDER BY FirstName DESC;
+
+SELECT FirstName
+FROM                              // Error Code: 1222. The used SELECT
+                                  statements have a different number of columns
+Customers
+UNION SELECT FirstName, LastName    
+FROM Employees
+ORDER BY FirstName DESC;
+
+SELECT FirstName, LastName
+FROM Customers
+UNION ALL SELECT FirstName, LastName
+FROM Employees
+ORDER BY FirstName;
+
+SELECT FirstName, LastName, AccountSum + AccountSum * 0.1 AS TotalSum
+FROM Customers WHERE AccountSum < 3000
+UNION SELECT FirstName, LastName, AccountSum + AccountSum * 0.3 AS TotalSum
+FROM Customers WHERE AccountSum >= 3000;
+
+SELECT столбцы
+FROM таблица1
+    [INNER] JOIN таблица2
+    ON условие1
+    [[INNER] JOIN таблица3
+    ON условие2]
+
+SELECT O.CreatedAt, O.ProductCount, P.ProductName
+FROM Orders AS O
+JOIN Products AS P
+ON P.Id = O.ProductId;
+
+SELECT столбцы
+FROM таблица1
+    {LEFT|RIGHT} [OUTER] JOIN таблица2 ON условие1
+    [{LEFT|RIGHT} [OUTER] JOIN таблица3 ON условие2] ...
+
+SELECT FirstName, CreatedAt, ProductCount, Price, ProductId
+FROM Orders LEFT JOIN Customers
+ON Orders.CustomerId = Customers.Id
+
+SELECT FirstName, CreatedAt, ProductCount, Price
+FROM Customers RIGHT JOIN Orders
+ON Orders.CustomerId = Customers.Id;
+
+SELECT * FROM Products
+WHERE Id IN (SELECT ProductId FROM Orders)
+
+SELECT * FROM Products
+WHERE Id NOT IN (SELECT ProductId FROM Orders)
+
+WHERE [NOT] EXISTS (подзапрос)
+
+CREATE TABLE yourTableName SELECT * FROM yourOriginalTableName;
+
+SELECT [DISTINCT | ALL] поля_таблиц
+FROM список_таблиц
+[WHERE условия_на ограничения_строк]
+[GROUP BY условия_группировки]
+[HAVING условия_на_ограничения_строк_после_группировки]
+[ORDER BY порядок_сортировки [ASC | DESC]]
+[LIMIT ограничение_количества_записей]
+
