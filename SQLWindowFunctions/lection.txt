@@ -35,4 +35,25 @@
         ROWS или RANGE выражение для ограничения строк в пределах группы
   )
 
-11:30
+CREATE [OR REPLACE] VIEW view_name AS
+  SELECT columns
+  FROM tables
+  [WHERE conditions];
+
+CREATE VIEW Londonstaff
+            AS SELECT *
+            FROM Salespeople
+            WHERE city = 'London';
+
+SELECT *
+FROM Londonstaff;
+
+ALTER VIEW view_name AS
+  SELECT columns
+  FROM table
+  WHERE conditions;
+
+ALTER VIEW hardware_suppliers AS
+  SELECT supplier_id, supplier_name, address, city
+  FROM suppliers
+  WHERE category_type = 'Hardware';

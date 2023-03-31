@@ -22,3 +22,11 @@ CASE
 	ELSE 'Order is in open state'
 END AS order_summary
 FROM orders;
+
+DROP VIEW customer_archive;
+
+CREATE VIEW view-name AS
+SELECT column1, column2, column3, ...
+FROM table_name1 INNER JOIN table_name2
+ON table_name1.column = table_name2.column;
+
