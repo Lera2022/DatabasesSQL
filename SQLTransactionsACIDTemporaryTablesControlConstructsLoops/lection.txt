@@ -59,7 +59,7 @@ BEGIN
     executable_section
 END;
 
-mysql> DELIMITER %%
+mysql> DELIMITER &&
 mysql> CREATE PROCEDURE Filter ()
     -> BEGIN
     -> SELECT * FROM data.record WHERE Country LIKE '%ia';
